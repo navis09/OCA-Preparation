@@ -10,12 +10,19 @@ class Base{
 
 class A {
 	int i = 10;
+	static String ID = "QBANK";
 	int m1() {
 		return i;
 	}
 }
 class B extends A {
 	int i = 20;
+	static{
+		System.out.println("static blocks");
+	}
+	static void print(){
+		System.out.println("static method invoked");
+	}
 	int m1() {
 		return i;
 	}
@@ -23,7 +30,7 @@ class B extends A {
 class C extends B {
 	int i = 30;
 	int m1() {
-		return i;
+		return i + 1;
 	}
 	String m2() {
 		return "Method declared in subclass";
@@ -31,11 +38,46 @@ class C extends B {
 }
 
 public class Test extends Base implements Bozo{
+	private char c;
+	private int i;
+	private byte b;
+	private short s;
+	private long l;
+	private boolean bool;
+	private double d;
+	private float f;
 	private int j = 0; //used in loop
 	public static int var = 0;
 
 	public static void main(String[] args) {
-		System.out.println("String".replace('g','G') == "StrinG");
+		Test t = new Test();
+
+		/* Underscore allowed bewtween numbers(but not commas)*/
+		// long y = 2_44;
+		// int hex = 0xCAFE_BA__BE;
+		// System.out.println(y);
+		// System.out.println(hex);
+
+		/* || and && */
+		// if (true || false && false) {
+		// 	System.out.println("&& has higher precedence");
+		// }
+
+
+		/* primitive type default value */
+		// System.out.println(t.b);
+		// System.out.println(t.c);
+		// System.out.println(t.i);
+		// System.out.println(t.s);
+		// System.out.println(t.l);
+		// System.out.println(t.bool);
+		// System.out.println(t.d);
+		// System.out.println(t.f);
+		/* Working with inheritance */
+		// B.print();
+		// System.out.println(B.ID);
+
+		//System.out.println("String".replace('g','G') == "StrinG");
 
 		// Test t = new Test();
 		// System.out.println(t.accessStatic());
@@ -82,7 +124,7 @@ public class Test extends Base implements Bozo{
 		// System.out.println(s.substring(s.indexOf('I', 4))); //s.indexOf returns -1
 
 		/* Override */
-		// A a = new C();
+		// A a = new B();
 		// B b = (B)a;
 		// C c = (C)a;
 		// System.out.println(a.i);
